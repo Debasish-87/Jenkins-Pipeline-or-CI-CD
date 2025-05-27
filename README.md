@@ -112,17 +112,26 @@ docker run -p 8080:8080 -p 50000:50000 -v jenkins_home:/var/jenkins_home jenkins
 
 ### Jenkins Pipeline Successfully Built, Tested, and Deployed
 
-![Jenkins Pipeline Success](images/jenkins_pipeline_success.png)
+![Jenkins Pipeline Success](images/simple-node-pipeline-status.jpeg)
+*Jenkins pipeline successfully completed all stages.*
+
+---
+
+### Jenkins Pipeline Successfully Built, Tested, and Deployed Status
+
+![Jenkins Pipeline Success](images/simple-node-pipline-status2.jpeg)
 *Jenkins pipeline successfully completed all stages.*
 
 ---
 
 ### Docker Running Jenkins Container
 
-![Docker Run Jenkins](images/docker_run_jenkins.png)
+![Docker Run Jenkins](images/docker-run-jenkins.jpeg)
 *Jenkins running inside a Docker container.*
 
 ---
+
+
 
 ## 💡 Interview Questions
 
