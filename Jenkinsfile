@@ -5,6 +5,11 @@ pipeline {
         NODE_VERSION = '18' // Node.js version reference (optional)
     }
 
+    triggers {
+        // Run every 1 minute
+        cron('H/1 * * * *')
+    }
+
     stages {
         stage('Checkout Code') {
             steps {
