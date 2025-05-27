@@ -2,11 +2,7 @@ pipeline {
     agent any
 
     environment {
-        NODE_VERSION = '18'  // Set your Node.js version
-    }
-
-    tools {
-        nodejs "${NODE_VERSION}"
+        NODE_VERSION = '18' // Just a reference, not enforced
     }
 
     stages {
@@ -18,6 +14,7 @@ pipeline {
 
         stage('Install Dependencies') {
             steps {
+                sh 'node -v'        // Check Node version
                 sh 'npm install'
             }
         }
