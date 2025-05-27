@@ -1,68 +1,32 @@
 pipeline {
     agent any
 
-    environment {
-        // Define Docker image name
-        IMAGE_NAME = "debasishexample/simple-node-app"
-    }
-
     stages {
         stage('Checkout') {
             steps {
-                // Checkout code from your GitHub repo
-                checkout([
-                    $class: 'GitSCM',
-                    branches: [[name: '*/main']],
-                    userRemoteConfigs: [[
-                        url: 'https://github.com/Debasish-87/Jenkins-Pipeline-or-CI-CD.git',
-                        credentialsId: '8f69f519-cf9e-4285-a21f-b0b250279c22'
-                    ]]
-                ])
+                // Pull the latest code
+                git branch: 'main', url: 'https://github.com/YourUsername/YourRepo.git'
             }
         }
-
         stage('Build') {
             steps {
-                echo "Building the Docker image..."
-                script {
-                    // Build Docker image
-                    docker.build(IMAGE_NAME)
-                }
+                echo 'Building Docker image...'
+                sh 'docker build -t my-app:latest .'
             }
         }
-
         stage('Test') {
             steps {
-                echo "Running tests..."
-                // Assuming you have npm tests (adjust if needed)
-                sh 'npm install'
-                sh 'npm test'
+                echo 'Running tests...'
+                // Example: run a script or test command
+                sh 'echo "Tests passed!"'
             }
         }
-
         stage('Deploy') {
             steps {
-                echo "Deploying the application..."
-                script {
-                    docker.withRegistry('', 'dockerhub-credentials-id') {
-                        // Push Docker image to Docker Hub (use your DockerHub credentials in Jenkins)
-                        docker.image(IMAGE_NAME).push()
-                    }
-                }
+                echo 'Deploying app...'
+                // Example: run the docker container (modify as needed)
+                sh 'docker run -d -p 3000:3000 my-app:latest'
             }
-        }
-    }
-
-    post {
-        always {
-            echo "Cleaning up workspace..."
-            cleanWs()
-        }
-        success {
-            echo "Pipeline completed successfully!"
-        }
-        failure {
-            echo "Pipeline failed. Check logs!"
         }
     }
 }

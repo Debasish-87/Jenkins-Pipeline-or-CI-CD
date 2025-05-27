@@ -1,12 +1,13 @@
-FROM node:14
+FROM jenkins/jenkins:lts
 
-WORKDIR /app
+USER root
 
-COPY package*.json ./
-RUN npm install
+# Match Docker GID from host
+ARG DOCKER_GID=999
+RUN groupadd -g ${DOCKER_GID} docker \
+    && usermod -aG docker jenkins
 
-COPY . .
+# Install Docker CLI (if not already)
+RUN apt-get update && apt-get install -y docker.io
 
-EXPOSE 3000
-
-CMD ["npm", "start"]
+USER jenkins
