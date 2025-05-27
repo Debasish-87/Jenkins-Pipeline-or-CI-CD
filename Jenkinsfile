@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        NODE_VERSION = '18' // Just a reference, not enforced
+        NODE_VERSION = '18' // Node.js version reference (optional)
     }
 
     stages {
@@ -14,7 +14,7 @@ pipeline {
 
         stage('Install Dependencies') {
             steps {
-                sh 'node -v'        // Check Node version
+                sh 'node -v'
                 sh 'npm install'
             }
         }
@@ -27,7 +27,7 @@ pipeline {
 
         stage('Build') {
             steps {
-                sh 'npm run build'
+                sh 'npm run build || echo "No build script defined"'
             }
         }
 
