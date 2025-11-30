@@ -164,7 +164,7 @@ For questions or suggestions, feel free to reach out:
 👤 **Debasish Mohanty**
 📧 [debasishm8765@gmail.com](mailto:debasishm8765@gmail.com)
 🔗 [GitHub Profile](https://github.com/Debasish-87)
-
+👤 **Srujan Rana**
 ---
 
 ✨ *Happy CI/CD-ing!* 🎉
