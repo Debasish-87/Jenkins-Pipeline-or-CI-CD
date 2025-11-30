@@ -165,6 +165,8 @@ For questions or suggestions, feel free to reach out:
 📧 [debasishm8765@gmail.com](mailto:debasishm8765@gmail.com)
 🔗 [GitHub Profile](https://github.com/Debasish-87)
 👤 **Srujan Rana**
+🔗 [GitHub Profile](https://github.com/Srujanrana07)
+👤 **Rudra Prassad Jena**
 ---
 
 ✨ *Happy CI/CD-ing!* 🎉
